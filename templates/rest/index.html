@@ -1,0 +1,149 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Language" content="en-us" />
+    <title>OnePageApp</title>
+    <meta name="ROBOTS" content="ALL" />
+    <meta http-equiv="imagetoolbar" content="no" />
+    <meta name="MSSmartTagsPreventParsing" content="true" />
+    <link href="/static/resources/css/ext-all.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" language="javascript" src="/static/ext-all.js"></script>
+    <script type="text/javascript" language="javascript" src="/static/ext-charts.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      Ext.onReady(function(){
+          Ext.define('DeviceModel', {
+              extend: 'Ext.data.Model',
+              fields: ['id','yonghu', 'yiqixinghao','baoxiang','shenhe','yujifahuo_date','hetongbh'],
+          });
+          var pageSize1=5;
+          var store = new Ext.data.JsonStore({
+            model: 'DeviceModel',
+            pageSize:pageSize1,
+            proxy: {
+              type: 'ajax',
+              url: '/parts/contact_list/',
+              headers: {'Accept':"application/json" },
+              reader: {
+                  type: 'json',
+                  rootProperty: 'results'
+              },
+              writer: {
+                  type: 'json'
+              }
+            },
+          });
+          var columns=[
+                { header:'id', dataIndex:'id' },
+                { header:'用户', dataIndex:'yonghu' },
+                { header:'仪器型号', dataIndex:'yiqixinghao'},
+                { header:'包箱', dataIndex:'baoxiang'},
+                { header:'审核', dataIndex:'shenhe'},
+                { header:'预计发货日期', dataIndex:'yujifahuo_date'},
+                { header:'合同编号', dataIndex:'hetongbh'}
+            ];
+          var paginTB = {
+            xtype:'pagingtoolbar',
+            store:store,
+            pageSize:pageSize1,
+            displayInfo:true
+          };
+          var grid = new Ext.grid.GridPanel({
+            title:'合同',
+            store:store,
+            viewConfig:{
+              forceFit:true
+            },
+            colModel:columns,
+            tbar:{
+              xtype:'toolbar',
+              frame:true,
+              border:false,
+              padding:2,
+              items:[
+                  { xtype:'textfield', emptyText:'請輸入關鍵字...', width:220, id:'queryText' },
+                  { xtype:'tbspacer', width:5 },
+                  { xtype:'button', text:'搜尋', handler:store, scope:this },
+                ]
+            },
+            bbar:paginTB
+          });
+          grid.on('select', function(rowmodel,model,index){
+            console.log(model.data.id);
+            store_record.proxy.url="/parts/item_list/?contact="+model.data.id;
+            store_record.load({params:{start:0, limit:pageSize2}});
+          });
+          grid.render('container');
+          store.load({params:{start:0, limit:pageSize1}});
+//////////////////////////////////////////////////////////////////////
+          var pageSize2=20;
+          Ext.define('RecordModel', {
+              extend: 'Ext.data.Model',
+              fields: ['id',  'item','ct'],
+          });
+          var store_record = new Ext.data.JsonStore({
+            pageSize:pageSize2,
+            model: 'RecordModel',
+            proxy: {
+              pageSize:pageSize2,
+              type: 'ajax',
+              url: '/parts/item_list/',
+              headers: {'Accept':"application/json" },
+              reader: {
+                  type: 'json',
+                  totalProperty:'total',
+                  rootProperty: 'results'
+              },
+              writer: {
+                  type: 'json'
+              }
+            },
+          });
+          var columns=[
+              { header:'id', dataIndex:'id' },
+              { header:'名称', dataIndex:'item' },
+              { header:'数量', dataIndex:'ct' },
+              //{ header:'mystr', dataIndex:'mystr' },
+          ];
+          var paginTB2 = {
+            xtype:'pagingtoolbar',
+            store:store_record,
+            pageSize:pageSize2,
+            displayInfo:true
+          };
+          var grid_record = new Ext.grid.GridPanel({
+            title:'Items',
+            store:store_record,
+            viewConfig:{
+              forceFit:true
+            },
+            colModel:columns,
+            tbar:{
+              xtype:'toolbar',
+              frame:true,
+              border:false,
+              padding:2,
+              items:[
+                  { xtype:'textfield', emptyText:'請輸入關鍵字...', width:220, id:'queryText2' },
+                  { xtype:'tbspacer', width:5 },
+                  { xtype:'button', text:'搜尋', handler:store_record, scope:this },
+                ]
+            },
+            bbar:paginTB2
+          });
+          grid_record.render('container_record');
+          //store_record.load({params:{contact:2,start:0, limit:pageSize2}});
+          var c=new MyChart();
+          c.render('container_chart');
+      });
+    </script>
+  </head>
+  <body id="{% block sectionid %}generic{% endblock %}" class="{% block coltype %}default{% endblock %}">
+      <div id="container"></div>
+      <div id="container_record"></div>
+      <div id="container_chart"></div>
+  </body>
+</html
+

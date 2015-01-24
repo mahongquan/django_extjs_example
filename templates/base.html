@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="en-us" />
+
+		<title>装箱单</title>
+		<link href="/static/css/{% block cssid %}base{% endblock %}.css" rel="stylesheet" type="text/css" media="screen" />
+		<link href="/static/css/print.css" rel="stylesheet" type="text/css" media="print" />
+      	{% block extrahead %}{% endblock %}
+	</head>
+	<body id="{% block sectionid %}generic{% endblock %}" class="{% block coltype %}default{% endblock %}">
+	<div id="container">
+		<div id="header" >            
+            <div><a href="/admin">admin </a><a href="/parts/items">items </a> <a href="/rest/writer">writer </a><a href="/explore">static </a><a href="/rest">rest </a></div>
+		</div>
+		<!-- END Header -->
+		<div id="billboard">{% block billboard %}{% endblock %}</div>
+		<div id="columnwrap">
+			{% block columnwrap %}
+            	<div id="content-main">
+				{% block content %}{% endblock %}
+				</div>
+				<!-- END #content-main -->
+			{% endblock %}
+		</div>
+		<!-- END #content -->
+		<div id="footer">
+		</div>
+	</div>
+	<!-- END #container -->
+	</body>
+</html>

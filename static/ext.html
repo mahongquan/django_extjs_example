@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="./resources/css/ext-all.css" />
+<script type="text/javascript" src="./ext-all.js"></script>
+<script type="text/javascript">
+	Ext.define('ContactItem', {
+	    extend: 'Ext.data.Model',
+	    fields: [{
+	        name: 'id',
+	        type: 'int',
+	        useNull: true
+	    }, 'contact', 'item','ct','hetongbh',"name"],
+	});
+	Ext.onReady(function(){
+		var onlogin=function(){
+			console.log("Login");
+			var text1=helloWindow.getComponent("username");
+			text1.setValue("hello");
+		};
+	    var helloWindow = new Ext.Window({
+            title:"edit contactitem",
+            // x:0,
+            // y:60,
+            //layout: 'fit',
+            width:600,
+            height:300,
+            modal:false,
+            items : [
+                  {
+                      xtype      : 'textfield',
+                      fieldLabel : 'Username',
+                      itemId     : 'username',
+                      name       : 'username'
+                  },
+
+                  {
+                      xtype      : 'textfield',
+                      fieldLabel : '性别',
+                      itemId     : 'gender',
+                      name       : 'gender'
+                  }
+                  ],
+            buttons      : [
+                  {
+                      text : 'Cancel'
+                  },
+                  {
+                      text : 'Login',handler:function(){
+                        console.log(this);
+                      }
+                  }
+            ],
+        });
+        helloWindow.show('windowDiv');
+	});
+</script>
+</head>
+<body>
+<div id="container"></div>
+<div id="container2"></div>
+<div id="anchor"></div>
+<div id="windowDiv"></div>
+</body>
+</html>

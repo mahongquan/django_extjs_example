@@ -1,0 +1,274 @@
+KeyError at /parts/item_list/
+'mystr'
+
+Request Method: GET
+Request URL: http://localhost:8000/parts/item_list/?contact=6&_dc=1417673173369&start=0&limit=3&page=1
+Django Version: 1.7
+Python Executable: d:\python27\python.exe
+Python Version: 2.7.3
+Python Path: ['D:\\QT_parts', 'd:\\python27\\lib\\site-packages\\antlr_python_runtime-3.1.3-py2.7.egg', 'd:\\python27\\lib\\site-packages\\setuptools-0.6c11-py2.7.egg', 'd:\\python27\\lib\\site-packages\\zope.interface-4.0.3-py2.7-win32.egg', 'd:\\python27\\lib\\site-packages\\pgu-0.18-py2.7.egg', 'd:\\python27\\lib\\site-packages\\pil-1.1.7-py2.7-win32.egg', 'd:\\python27\\lib\\site-packages\\sphinx-1.1.3-py2.7.egg', 'd:\\python27\\lib\\site-packages\\docutils-0.10-py2.7.egg', 'd:\\python27\\lib\\site-packages\\jinja2-2.6-py2.7.egg', 'd:\\python27\\lib\\site-packages\\pygments-1.6rc1-py2.7.egg', 'd:\\python27\\lib\\site-packages\\markups-0.2.4-py2.7.egg', 'd:\\python27\\lib\\site-packages\\nodebox_opengl-1.6.1-py2.7.egg', 'd:\\python27\\lib\\site-packages\\pyserial-2.6-py2.7.egg', 'd:\\python27\\lib\\site-packages\\django_tastypie-0.9.15-py2.7.egg', 'd:\\python27\\lib\\site-packages\\python_dateutil-2.1-py2.7.egg', 'd:\\python27\\lib\\site-packages\\mimeparse-0.1.3-py2.7.egg', 'd:\\python27\\lib\\site-packages\\six-1.3.0-py2.7.egg', 'd:\\python27\\lib\\site-packages\\requests-1.2.1-py2.7.egg', 'd:\\python27\\lib\\site-packages\\bottle-0.12.7-py2.7.egg', 'd:\\python27\\lib\\site-packages\\sqlalchemy-0.9.7-py2.7.egg', 'd:\\python27\\lib\\site-packages\\django-1.7-py2.7.egg', 'd:\\python27\\lib\\site-packages\\djangorestframework-2.4.3-py2.7.egg', 'd:\\python27\\python27.zip', 'd:\\python27\\DLLs', 'd:\\python27\\lib', 'd:\\python27\\lib\\plat-win', 'd:\\python27\\lib\\lib-tk', 'd:\\python27', 'd:\\python27\\lib\\site-packages', 'd:\\python27\\lib\\site-packages\\win32', 'd:\\python27\\lib\\site-packages\\win32\\lib', 'd:\\python27\\lib\\site-packages\\Pythonwin']
+Server time: Thu, 4 Dec 2014 14:06:13 +0800
+Installed Applications:
+('django.contrib.auth',
+ 'django.contrib.contenttypes',
+ 'django.contrib.sessions',
+ 'django.contrib.sites',
+ 'django.contrib.staticfiles',
+ 'django.contrib.messages',
+ 'django.contrib.admindocs',
+ 'django.contrib.admin',
+ 'explore',
+ 'mysite.parts')
+Installed Middleware:
+('django.middleware.common.CommonMiddleware',
+ 'django.contrib.sessions.middleware.SessionMiddleware',
+ 'django.middleware.csrf.CsrfViewMiddleware',
+ 'django.contrib.auth.middleware.AuthenticationMiddleware',
+ 'django.contrib.messages.middleware.MessageMiddleware')
+
+Traceback:
+File "d:\python27\lib\site-packages\django-1.7-py2.7.egg\django\core\handlers\base.py" in get_response
+  111.                     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+File "d:\python27\lib\site-packages\django-1.7-py2.7.egg\django\views\decorators\csrf.py" in wrapped_view
+  57.         return view_func(*args, **kwargs)
+File "d:\python27\lib\site-packages\django-1.7-py2.7.egg\django\views\generic\base.py" in view
+  69.             return self.dispatch(request, *args, **kwargs)
+File "build\bdist.win32\egg\rest_framework\views.py" in dispatch
+  403.             response = self.handle_exception(exc)
+File "build\bdist.win32\egg\rest_framework\views.py" in dispatch
+  400.             response = handler(request, *args, **kwargs)
+File "build\bdist.win32\egg\rest_framework\decorators.py" in handler
+  50.             return func(*args, **kwargs)
+File "D:\QT_parts\mysite\parts\views.py" in item_list
+  63.         serializer = ContactItemSerializer(snippets, many=True)
+File "build\bdist.win32\egg\rest_framework\serializers.py" in __init__
+  200.         self.fields = self.get_fields()
+File "build\bdist.win32\egg\rest_framework\serializers.py" in get_fields
+  246.                 new[key] = ret[key]
+
+Exception Type: KeyError at /parts/item_list/
+Exception Value: 'mystr'
+Request information:
+GET:
+start = u'0'
+contact = u'6'
+_dc = u'1417673173369'
+limit = u'3'
+page = u'1'
+
+POST: No POST data
+
+FILES: No FILES data
+
+COOKIES:
+csrftoken = 'XKzRsFwVwLsAn9JA993GAY6KI5UinNI4'
+sessionid = 'xrwg3k2qifawrxtqydu5j67307ao9ke4'
+
+META:
+TMP = 'C:\\Users\\hp\\AppData\\Local\\Temp'
+COMPUTERNAME = 'HP-PC'
+wsgi.multiprocess = False
+RUN_MAIN = 'true'
+HTTP_REFERER = 'http://localhost:8000/parts/onepage/'
+USERDOMAIN = 'hp-PC'
+SERVER_PROTOCOL = 'HTTP/1.1'
+SERVER_SOFTWARE = 'WSGIServer/0.1 Python/2.7.3'
+PSMODULEPATH = 'C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\'
+SCRIPT_NAME = u''
+COMMONPROGRAMFILES = 'C:\\Program Files\\Common Files'
+PROCESSOR_IDENTIFIER = 'x86 Family 6 Model 58 Stepping 9, GenuineIntel'
+REQUEST_METHOD = 'GET'
+PROGRAMFILES = 'C:\\Program Files'
+PROCESSOR_REVISION = '3a09'
+PATH = 'd:\\python27;D:\\node0.10.13\\node-webkit-v0.10.5-win-ia32;D:\\node0.10.13;c:\\Program Files\\AMD APP\\bin\\x86;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\3.0\\bin\\x86'
+QUERY_STRING = 'contact=6&_dc=1417673173369&start=0&limit=3&page=1'
+SYSTEMROOT = 'C:\\Windows'
+AMDAPPSDKROOT = 'c:\\Program Files\\AMD APP\\'
+wsgi.errors = <open file '<stderr>', mode 'w' at 0x012550D0>
+CONTENT_LENGTH = ''
+HTTP_USER_AGENT = 'Mozilla/5.0 (Windows NT 6.1; rv:25.0) Gecko/20100101 Firefox/25.0'
+HTTP_CONNECTION = 'keep-alive'
+HTTP_COOKIE = 'csrftoken=XKzRsFwVwLsAn9JA993GAY6KI5UinNI4; sessionid=xrwg3k2qifawrxtqydu5j67307ao9ke4'
+TEMP = 'C:\\Users\\hp\\AppData\\Local\\Temp'
+REMOTE_ADDR = '127.0.0.1'
+PROCESSOR_ARCHITECTURE = 'x86'
+wsgi.url_scheme = 'http'
+ALLUSERSPROFILE = 'C:\\ProgramData'
+SERVER_PORT = '8000'
+LOCALAPPDATA = 'C:\\Users\\hp\\AppData\\Local'
+HOMEPATH = '\\Users\\hp'
+PROCESSOR_LEVEL = '6'
+USERNAME = 'hp'
+HTTP_ACCEPT = 'application/json'
+LOGONSERVER = '\\\\HP-PC'
+PROMPT = '$P$G'
+COMSPEC = 'C:\\Windows\\system32\\cmd.exe'
+HTTP_X_REQUESTED_WITH = 'XMLHttpRequest'
+PROGRAMDATA = 'C:\\ProgramData'
+wsgi.multithread = True
+CSRF_COOKIE = u'XKzRsFwVwLsAn9JA993GAY6KI5UinNI4'
+wsgi.input = <socket._fileobject object at 0x038640B0>
+HTTP_HOST = 'localhost:8000'
+SESSIONNAME = 'Console'
+PATHEXT = '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+PATH_INFO = u'/parts/item_list/'
+FP_NO_HOST_CHECK = 'NO'
+WINDIR = 'C:\\Windows'
+HTTP_ACCEPT_ENCODING = 'gzip, deflate'
+wsgi.version = 
+MOZ_PLUGIN_PATH = 'C:\\Program Files\\Foxit Software\\Foxit Reader\\plugins\\'
+HOMEDRIVE = 'C:'
+SERVER_NAME = 'hp-PC'
+wsgi.run_once = False
+REMOTE_HOST = ''
+SYSTEMDRIVE = 'C:'
+GATEWAY_INTERFACE = 'CGI/1.1'
+HTTP_ACCEPT_LANGUAGE = 'zh-cn,zh;q=0.8,en-us;q=0.5,en;q=0.3'
+NUMBER_OF_PROCESSORS = '2'
+APPDATA = 'C:\\Users\\hp\\AppData\\Roaming'
+DJANGO_SETTINGS_MODULE = 'mysite.settings'
+CONTENT_TYPE = 'text/plain'
+wsgi.file_wrapper = ''
+OS = 'Windows_NT'
+PUBLIC = 'C:\\Users\\Public'
+USERPROFILE = 'C:\\Users\\hp'
+
+Settings:
+Using settings module mysite.settings
+USE_L10N = False
+USE_THOUSAND_SEPARATOR = False
+CSRF_COOKIE_SECURE = False
+LANGUAGE_CODE = 'en-us'
+ROOT_URLCONF = 'mysite.urls'
+MANAGERS = 
+TEST_NON_SERIALIZED_APPS = []
+DEFAULT_CHARSET = 'utf-8'
+SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
+STATIC_ROOT = 'D:\\QT_parts\\mysite/../staticRoot/'
+ALLOWED_HOSTS = []
+MESSAGE_STORAGE = 'django.contrib.messages.storage.fallback.FallbackStorage'
+EMAIL_SUBJECT_PREFIX = '[Django] '
+SEND_BROKEN_LINK_EMAILS = False
+STATICFILES_FINDERS = 
+SESSION_CACHE_ALIAS = 'default'
+SESSION_COOKIE_DOMAIN = None
+SESSION_COOKIE_NAME = 'sessionid'
+ADMIN_FOR = 
+TIME_INPUT_FORMATS = 
+DATABASES = {'default': {'ENGINE': 'django.db.backends.sqlite3', 'AUTOCOMMIT': True, 'ATOMIC_REQUESTS': False, 'NAME': 'data.sqlite', 'CONN_MAX_AGE': 0, 'TIME_ZONE': 'Asia/Shanghai', 'OPTIONS': {}, 'HOST': '', 'USER': '', 'TEST': {'COLLATION': None, 'CHARSET': None, 'NAME': None, 'MIRROR': None}, 'PASSWORD': u'********************', 'PORT': ''}}
+FILE_UPLOAD_DIRECTORY_PERMISSIONS = None
+FILE_UPLOAD_PERMISSIONS = None
+FILE_UPLOAD_HANDLERS = 
+DEFAULT_CONTENT_TYPE = 'text/html'
+APPEND_SLASH = True
+LOCALE_PATHS = 
+DATABASE_ROUTERS = []
+DEFAULT_TABLESPACE = ''
+YEAR_MONTH_FORMAT = 'F Y'
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+CACHES = {'default': {'BACKEND': 'django.core.cache.backends.locmem.LocMemCache'}}
+SERVER_EMAIL = 'root@localhost'
+SESSION_COOKIE_PATH = '/'
+SILENCED_SYSTEM_CHECKS = []
+MIDDLEWARE_CLASSES = 
+USE_I18N = True
+THOUSAND_SEPARATOR = ','
+SECRET_KEY = u'********************'
+LANGUAGE_COOKIE_NAME = 'django_language'
+DEFAULT_INDEX_TABLESPACE = ''
+TRANSACTIONS_MANAGED = False
+LOGGING_CONFIG = 'logging.config.dictConfig'
+TEMPLATE_LOADERS = 
+FIRST_DAY_OF_WEEK = 0
+WSGI_APPLICATION = None
+TEMPLATE_DEBUG = True
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+AUTHENTICATION_BACKENDS = 'django.contrib.auth.backends.ModelBackend'
+FORCE_SCRIPT_NAME = None
+USE_X_FORWARDED_HOST = False
+SIGNING_BACKEND = 'django.core.signing.TimestampSigner'
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_DOMAIN = None
+FILE_CHARSET = 'utf-8'
+DEBUG = True
+LANGUAGE_COOKIE_DOMAIN = None
+DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
+INSTALLED_APPS = 
+LANGUAGES = 
+COMMENTS_ALLOW_PROFANITIES = False
+STATICFILES_DIRS = 
+PREPEND_WWW = False
+SECURE_PROXY_SSL_HEADER = None
+LANGUAGE_COOKIE_AGE = None
+SESSION_COOKIE_HTTPONLY = True
+DEBUG_PROPAGATE_EXCEPTIONS = False
+INTERNAL_IPS = 
+MONTH_DAY_FORMAT = 'F j'
+LOGIN_URL = '/accounts/login/'
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+TIME_FORMAT = 'P'
+AUTH_USER_MODEL = 'auth.User'
+DATE_INPUT_FORMATS = 
+CSRF_COOKIE_NAME = 'csrftoken'
+EMAIL_HOST_PASSWORD = u'********************'
+PASSWORD_RESET_TIMEOUT_DAYS = u'********************'
+SESSION_FILE_PATH = None
+CACHE_MIDDLEWARE_ALIAS = 'default'
+SESSION_SAVE_EVERY_REQUEST = False
+ADMIN_MEDIA_PREFIX = '/media/'
+NUMBER_GROUPING = 0
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+CSRF_FAILURE_VIEW = 'django.views.csrf.csrf_failure'
+CSRF_COOKIE_PATH = '/'
+LOGIN_REDIRECT_URL = '/accounts/profile/'
+DECIMAL_SEPARATOR = '.'
+IGNORABLE_404_URLS = 
+MIGRATION_MODULES = {}
+TEMPLATE_STRING_IF_INVALID = ''
+LOGOUT_URL = '/accounts/logout/'
+EMAIL_USE_TLS = False
+FIXTURE_DIRS = 
+EMAIL_HOST = 'localhost'
+DATE_FORMAT = 'N j, Y'
+MEDIA_ROOT = 'D:\\QT_parts\\mysite/../media/'
+DEFAULT_EXCEPTION_REPORTER_FILTER = 'django.views.debug.SafeExceptionReporterFilter'
+ADMINS = 
+FORMAT_MODULE_PATH = None
+DEFAULT_FROM_EMAIL = 'webmaster@localhost'
+MEDIA_URL = '/media/'
+DATETIME_FORMAT = 'N j, Y, P'
+TEMPLATE_DIRS = 'D:\\QT_parts\\mysite/../templates/'
+SITE_ID = 1
+DISALLOWED_USER_AGENTS = 
+ALLOWED_INCLUDE_ROOTS = 
+LOGGING = {}
+SHORT_DATE_FORMAT = 'm/d/Y'
+TEST_RUNNER = 'django.test.runner.DiscoverRunner'
+CACHE_MIDDLEWARE_KEY_PREFIX = u'********************'
+TIME_ZONE = 'Asia/Shanghai'
+FILE_UPLOAD_MAX_MEMORY_SIZE = 2621440
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_SSL = False
+TEMPLATE_CONTEXT_PROCESSORS = 
+SESSION_COOKIE_AGE = 1209600
+SETTINGS_MODULE = 'mysite.settings'
+USE_ETAGS = False
+LANGUAGES_BIDI = 
+FILE_UPLOAD_TEMP_DIR = None
+CSRF_COOKIE_AGE = 31449600
+STATIC_URL = '/static/'
+EMAIL_PORT = 25
+USE_TZ = False
+SHORT_DATETIME_FORMAT = 'm/d/Y P'
+PASSWORD_HASHERS = u'********************'
+ABSOLUTE_URL_OVERRIDES = {}
+LANGUAGE_COOKIE_PATH = '/'
+CACHE_MIDDLEWARE_SECONDS = 600
+CSRF_COOKIE_HTTPONLY = False
+DATETIME_INPUT_FORMATS = 
+EMAIL_HOST_USER = ''
+PROFANITIES_LIST = u'********************'
+
+You're seeing this error because you have DEBUG = True in your
+Django settings file. Change that to False, and Django will
+display a standard 500 page.

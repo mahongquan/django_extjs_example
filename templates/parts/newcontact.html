@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block extrahead %}
+    <style type="text/css" title="currentStyle">
+                @import "/static/DataTables-1.9.4/media/css/demo_page.css";
+                @import "/static/DataTables-1.9.4/media/css/demo_table.css";
+            </style>
+    <link rel="stylesheet" href="/static/jquery-ui-1.10.3.custom/css/ui-lightness/jquery-ui-1.10.3.custom.css" />
+    <script type="text/javascript" language="javascript" src="/static/DataTables-1.9.4/media/js/jquery.js"></script>
+    <script src="/static/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="/static/jquery-ui-1.10.3.custom/js/jquery-ui-timepicker-addon.js"></script>
+    <script src="/static/newcontact.js"></script>
+    <script type="text/javascript" language="javascript" src="/static/DataTables-1.9.4/media/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function() {
+            $('#table1').dataTable({"bPaginate": false,"bInfo": false,});
+        } );
+    </script>
+{% endblock %}
+{% block content %}
+<div>内部编号:{{contact.id}}</div>
+<form method="post" action="/parts/savecontact/">{% csrf_token %}
+<table    cellpadding="0" cellspacing="0" border="0"  id="table0" width="300" >
+<tr>
+<td><label >用户名称:</label></td>
+<td><input type="text"   name="yonghu"  value={{ contact.yonghu}}></input></td>
+</tr>
+<tr>
+<td><label >仪器型号:</label></td>
+<td><input type="text"  	  name="yiqixinghao"  value={{ contact.yiqixinghao }}  ></input></td>
+</tr>
+<tr>
+<td><label >仪器编号:</label></td>
+<td><input type="text"   name="yiqibh"  value={{ contact.yiqibh }} ></input></td>
+</tr>
+<tr>
+<td><label >包箱:</label></td>
+<td><input type="text"   name="baoxiang"  value={{ contact.baoxiang }} ></input></td>
+</tr>
+<tr>
+<td><label >审核:</label></td>
+<td><input type="text"   name="shenhe"  value={{ contact.shenhe }} ></input></td>
+</tr>
+<tr>
+<td><label >预计发货时间:</label></td>
+<td><input type="text"  class='datepicker'  name="yujifahuo_date"  value={{ contact.yujifahuo_date|date:"Y-m-d" }} ></input></td>
+</tr>
+<tr>
+<td><label >合同编号:</label></td>
+<td><input type="text"   name="hetongbh"  value={{ contact.hetongbh }} ></input></td>
+</tr>
+</table>
+<input type="hidden" name="contact_id" value="{{ contact.id }}" />
+<input type="hidden" name="user_id" value="{{ user.id }}" />
+<input type="hidden" name="new" value="{{ new }}" />
+<input type="submit" value="保存" />
+</form>
+<table    cellpadding="0" cellspacing="0" border="0" class="display" id="table1" width="100%">
+    <thead>
+       <td>id</td>
+      <td>编号</td>
+      <td>名称</td>
+       <td>数量</td>
+      <td>英文名称</td>
+      <td>图片</td>
+    </thead>
+    <tbody>
+{% for c in contact.contactitem_set.all %} 
+    <tr>
+       <td>{{ c.id }}</td>
+      <td>{{ c.item.bh }}</td>
+       <td>{{ c.item.name }}</td>
+      <td>{{ c.ct }}</td>
+      <td>{{ c.item.name_en }}</td>
+      <td><img src="/media/{{ c.item.image }}" height="100"></td>
+      
+    </tr>
+{% endfor %}
+  </tbody>
+</table>
+{% endblock %}

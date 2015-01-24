@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block extrahead %}
+	<title>Rest Proxy Example</title>
+	<link rel="stylesheet" type="text/css" href="/static/resources/css/ext-all.css" />
+	<link rel="stylesheet" type="text/css" href="/static/restful.css" />
+	<script type="text/javascript" src="/static/ext-all.js"></script>
+	<script type="text/javascript" src="/static/restful.js"></script>
+{% endblock %}
+{% block content %}
+	<div id="user">{{ user }}</div>	
+	<div id="csrf">{% csrf_token %}</div>
+	<div id="container"></div>
+	<div id="container2"></div>
+	<div id="anchor"></div>
+	<div id="windowDiv"></div>
+	<div id="loginDiv"></div>
+{% endblock %}
